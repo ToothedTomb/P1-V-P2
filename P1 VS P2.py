@@ -13,10 +13,13 @@ tk = tk.Tk()
 my_menu = Menu(tk)
 tk.config(menu=my_menu)
 def our_command2():
-    root = tkinter.Tk() 
+    root = tkinter.Toplevel() 
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
     root.resizable(0,0)
     root.title("Who made this game?")
-
+    tk.config(bg='#90ee90')
+    tk.tk.call('wm', 'iconphoto', tk._w, image) #The icon I have made. :) 
     labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Who made this game?")
     label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Jonathan Steadman has made this game.")
     labelTitle.pack(side="top",fill="x",pady=1)
@@ -24,7 +27,9 @@ def our_command2():
     B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
     B1.pack()
 def our_command3():
-    root = tkinter.Tk() 
+    root = tkinter.Toplevel()
+    tk.config(bg='#90ee90')
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
     root.resizable(0,0)
     root.title("What is this game about?")
 
@@ -38,14 +43,47 @@ def our_command3():
 def restart():
     python = sys.executable
     os.execl(python, python, * sys.argv)
+def on_closing():
+    root = tkinter.Toplevel()  
+    root.resizable(0,0)
+    root.title("Confirm to exit the game:")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Confirm to exit the game:")
+    label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Are you sure you want to leave this game?")
+
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    B1 = tkinter.Button(root, text="Yes",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.quit)
+
+    B2 = tkinter.Button(root, text="No",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+    B1.pack(side=tkinter.LEFT, anchor=CENTER)
+    B2.pack(side=tkinter.RIGHT, anchor=CENTER)
+
 def our_command4():
-    root = tkinter.Tk() 
+    root = tkinter.Toplevel() 
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
     root.resizable(0,0)
     root.title("When will this game end support?")
 
-
     labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="When will this game end support?")
     label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="This game will be supported until 16th of August 2023.")
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+    B1.pack()
+
+def button_pressedPopup():
+    root = tkinter.Toplevel() 
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
+    root.resizable(0,0)
+    root.title("Error.")
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Error.")
+    label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="This button has allready been pressed.")
     labelTitle.pack(side="top",fill="x",pady=1)
     label.pack(side="top", fill="x", pady=2)
     B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
@@ -62,7 +100,7 @@ file_menu2.add_command(label="Restart This Game",font=("Ubuntu",12,),activebackg
 
 
 
-tk.title("P1 VS P2 For Linux 5.0!")
+tk.title("P1 VS P2 For Linux 6.0!")
 tk.config(bg='#90ee90')
 image = PhotoImage(file='icon.png')
 tk.tk.call('wm', 'iconphoto', tk._w, image) #The icon I have made. :)
@@ -105,7 +143,18 @@ def btnClick(buttons):
         checkForWin()
         flag += 1
     else:
-        tkinter.messagebox.showinfo("Sorry", "Button has allready been clicked!")
+        root = tkinter.Toplevel() 
+        root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
+        root.resizable(0,0)
+        root.title("Information:")
+
+        labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Information:")
+        label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="This button has allready been pressed.")
+        labelTitle.pack(side="top",fill="x",pady=1)
+        label.pack(side="top", fill="x", pady=2)
+        B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+        B1.pack()
 
 def checkForWin():
     if (button1['text'] == 'P1' and button2['text'] == 'P1' and button3['text'] == 'P1' or
@@ -118,10 +167,32 @@ def checkForWin():
         button2['text'] == 'P1' and button5['text'] == 'P1' and button8['text'] == 'P1' or
         button7['text'] == 'P1' and button6['text'] == 'P1' and button9['text'] == 'P1'):
         disableButton()
-        tkinter.messagebox.showinfo("P1 VS P2!", pa)
+        root = tkinter.Toplevel() 
+        root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
 
+        root.resizable(0,0)
+        root.title("Information:")
+
+        labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Information:")
+        label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Player one has won this game.")
+        labelTitle.pack(side="top",fill="x",pady=1)
+        label.pack(side="top", fill="x", pady=2)
+        B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+        B1.pack()
     elif(flag == 8):
-        tkinter.messagebox.showinfo("P1 VS P2!", "It is a Tie!")
+        disableButton()
+        root = tkinter.Toplevel() 
+        root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
+        root.resizable(0,0)
+        root.title("Information:")
+
+        labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Information:")
+        label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="This is a tie.")
+        labelTitle.pack(side="top",fill="x",pady=1)
+        label.pack(side="top", fill="x", pady=2)
+        B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+        B1.pack()
 
     elif (button1['text'] == 'P2' and button2['text'] == 'P2' and button3['text'] == 'P2' or
           button4['text'] == 'P2' and button5['text'] == 'P2' and button6['text'] == 'P2' or
@@ -133,8 +204,18 @@ def checkForWin():
           button2['text'] == 'P2' and button5['text'] == 'P2' and button8['text'] == 'P2' or
           button7['text'] == 'P2' and button6['text'] == 'P2' and button9['text'] == 'P2'):
         disableButton()
-        tkinter.messagebox.showinfo("P1 VS P2", playerb)
+        root = tkinter.Toplevel() 
+        root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
 
+        root.resizable(0,0)
+        root.title("Information:")
+
+        labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Information:")
+        label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Player two has won this game.")
+        labelTitle.pack(side="top",fill="x",pady=1)
+        label.pack(side="top", fill="x", pady=2)
+        B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+        B1.pack()
 
 buttons = StringVar()
 
@@ -169,4 +250,5 @@ button8.grid(row=5, column=1)
 button9 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button9))
 button9.grid(row=5, column=2)
 
+tk.protocol("WM_DELETE_WINDOW", on_closing)
 tk.mainloop()
