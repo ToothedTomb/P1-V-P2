@@ -12,7 +12,7 @@ from tkinter.messagebox import showinfo
 tk = tk.Tk()
 my_menu = Menu(tk)
 tk.config(menu=my_menu)
-def our_command2():
+def WhoMadeThisGame():
     root = tkinter.Toplevel() 
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
 
@@ -26,7 +26,7 @@ def our_command2():
     label.pack(side="top", fill="x", pady=2)
     B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
     B1.pack()
-def our_command3():
+def WhatIsThisGameAbout():
     root = tkinter.Toplevel()
     tk.config(bg='#90ee90')
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
@@ -61,7 +61,7 @@ def on_closing():
     B1.pack(side=tkinter.LEFT, anchor=CENTER)
     B2.pack(side=tkinter.RIGHT, anchor=CENTER)
 
-def our_command4():
+def WhenWillThisGameEndSupport():
     root = tkinter.Toplevel() 
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
 
@@ -74,7 +74,22 @@ def our_command4():
     label.pack(side="top", fill="x", pady=2)
     B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
     B1.pack()
+def KeyboardShortcuts():
+    root = tkinter.Toplevel() 
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
 
+    root.resizable(0,0)
+    root.title("Keyboard shortcuts.")
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Keyboard shortcuts.")
+    label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Press the escape key to exit this game.")
+    label2 = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Press the enter key to restart the game.")
+
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    label2.pack(side="top", fill="x", pady=3)
+    B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+    B1.pack()
 def button_pressedPopup():
     root = tkinter.Toplevel() 
     root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
@@ -89,18 +104,19 @@ def button_pressedPopup():
     B1 = tkinter.Button(root, text="Exit",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
     B1.pack()
 file_menu= Menu(my_menu,background="#0e639c",activebackground="orange",border="6")
-my_menu.add_cascade(label="About:",font=("Ubuntu",12),background="#0e639c",activebackground="orange", menu=file_menu)
-file_menu.add_command(label="Who made this game?",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=our_command2) 
-file_menu.add_command(label="What is this game about?",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=our_command3) 
+my_menu.add_cascade(label="About:",font=("Ubuntu",12),activebackground="orange", menu=file_menu)
+file_menu.add_command(label="Who made this game?",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=WhoMadeThisGame) 
+file_menu.add_command(label="What is this game about?",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=WhatIsThisGameAbout) 
 file_menu2= Menu(my_menu,background="#0e639c",activebackground="orange",border="6")
-file_menu.add_command(label="When this game will end support?",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=our_command4) 
+file_menu.add_command(label="When this game will end support?",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=WhenWillThisGameEndSupport) 
+file_menu.add_command(label="Keyboard shortcuts.",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=KeyboardShortcuts) 
 file_menu2= Menu(my_menu,background="#0e639c",activebackground="orange",border="6")
-my_menu.add_cascade(label="Actions:",font=("Ubuntu",12),background="#0e639c",activebackground="orange", menu=file_menu2)
+my_menu.add_cascade(label="Actions:",font=("Ubuntu",12),activebackground="orange", menu=file_menu2)
 file_menu2.add_command(label="Restart This Game",font=("Ubuntu",12,),activebackground="orange",background="#0e639c",command=restart) 
 
 
 
-tk.title("P1 VS P2 For Linux 6.0!")
+tk.title("P1 VS P2 For Linux 7.0!")
 tk.config(bg='#90ee90')
 image = PhotoImage(file='icon.png')
 tk.tk.call('wm', 'iconphoto', tk._w, image) #The icon I have made. :)
@@ -159,7 +175,7 @@ def btnClick(buttons):
 def checkForWin():
     if (button1['text'] == 'P1' and button2['text'] == 'P1' and button3['text'] == 'P1' or
         button4['text'] == 'P1' and button5['text'] == 'P1' and button6['text'] == 'P1' or
-        button7['text'] =='P1'  and button8['text'] == 'P1' and button9['text'] == 'P1' or
+        button7['text'] == 'P1' and button8['text'] == 'P1' and button9['text'] == 'P1' or
         button1['text'] == 'P1' and button5['text'] == 'P1' and button9['text'] == 'P1' or
         button3['text'] == 'P1' and button5['text'] == 'P1' and button7['text'] == 'P1' or
         button1['text'] == 'P1' and button2['text'] == 'P1' and button3['text'] == 'P1' or
@@ -223,32 +239,58 @@ label = Label( tk, text="P1 VS P2!", font=('ubuntu'"underline""bold"),background
 label.grid(row=1, column=1)
 
 
-button1 = Button(tk, text=" ", font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button1))
+button1 = Button(tk, text=" ", font='Ubuntu' "bold",border=(6),highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button1))
 button1.grid(row=3, column=0)
 
-button2 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button2))
+button2 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button2))
 button2.grid(row=3, column=1)
 
-button3 = Button(tk, text=' ',font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button3))
+button3 = Button(tk, text=' ',font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button3))
 button3.grid(row=3, column=2)
 
-button4 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button4))
+button4 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button4))
 button4.grid(row=4, column=0)
 
-button5 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button5))
+button5 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button5))
 button5.grid(row=4, column=1)
 
-button6 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button6))
+button6 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button6))
 button6.grid(row=4, column=2)
 
-button7 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button7))
+button7 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button7))
 button7.grid(row=5, column=0)
 
-button8 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button8))
+button8 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button8))
 button8.grid(row=5, column=1)
 
-button9 = Button(tk, text=' ', font='Ubuntu' "bold",border="6", bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button9))
+button9 = Button(tk, text=' ', font='Ubuntu' "bold",border="6",highlightbackground = '#90ee90', bg='#0e639c',activebackground='orange', fg='black', height=4, width=8, command=lambda: btnClick(button9))
 button9.grid(row=5, column=2)
+
+# When the user press the escape key then they can exit the game.
+def keypressEscape(event):
+    root = tkinter.Toplevel()  
+    root.resizable(0,0)
+    root.title("Confirm to exit the game:")
+    root.tk.call('wm', 'iconphoto', root._w, tkinter.PhotoImage(file='icon.png'))
+
+
+    labelTitle = ttk.Label(root,font=("Ubuntu", 12,"bold","underline"),anchor='center', text="Confirm to exit the game:")
+    label = ttk.Label(root,font=("Ubuntu", 12,"bold",),anchor='center', text="Are you sure you want to leave this game?")
+
+    labelTitle.pack(side="top",fill="x",pady=1)
+    label.pack(side="top", fill="x", pady=2)
+    B1 = tkinter.Button(root, text="Yes",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.quit)
+
+    B2 = tkinter.Button(root, text="No",font=("ubuntu",16,),bg="#0e639c",activebackground='orange', command = root.destroy)
+    B1.pack(side=tkinter.LEFT, anchor=CENTER)
+    B2.pack(side=tkinter.RIGHT, anchor=CENTER)
+
+#When the user press the enter key. The game will restart.
+def PressEnterKey(event):
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+tk.bind('<Return>', PressEnterKey)
+tk.bind('<Escape>', keypressEscape)
 
 tk.protocol("WM_DELETE_WINDOW", on_closing)
 tk.mainloop()
