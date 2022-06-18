@@ -1,4 +1,4 @@
-# P1 VS P2 6.0 For Linux!
+# P1 VS P2 7.0 For Linux!
 This software is a ticktaktoe clone but open source and only on Linux.
 
-![Screenshot from 2022-05-24 21-38-53](https://user-images.githubusercontent.com/52569279/170129122-62c69c9c-e805-48ed-85cf-1e7e7a47e87b.png)
+![Screenshot from 2022-06-18 20-49-32](https://user-images.githubusercontent.com/52569279/174455208-4be33428-dbd2-4dfb-8b18-b64b99060ead.png)
